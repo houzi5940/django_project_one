@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>列表</title>
+</head>
+<body>
+    {{request.session.username}}的笔记 
+    <a href="/note/add/">添加新笔记</a> <a href="/index/">返回首页</a>  
+    
+    <table border="1">
+        <tr>
+            <th>ID</th>
+            <th>标题</th>
+            <th>创建时间</th>
+            <th>修改时间</th>
+            <th>修改 删除</th>
+        </tr>
+        {% for i in date %}
+        <tr>
+            <td>
+                {{i.id}}
+            </td>
+            <td>
+                {{i.title}}
+            </td>
+            <td>
+                {{i.created_time|date:'Y-m-d H:i'}}
+            </td>
+            <td>
+                {{i.updated_time|date:'Y-m-d H:i'}}
+            </td>
+            <td>
+                <a href="">修改</a> 
+                <a href="">删除</a>
+            </td>
+        </tr>
+        {% endfor %}
+
+    </table>
+</body>
+</html>
